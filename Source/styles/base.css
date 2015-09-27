@@ -1,0 +1,116 @@
+@CHARSET "ISO-8859-1";
+
+html,body {
+	/* Full page */
+	background: #000000;
+	height: 100%;
+	margin: 0;
+	
+	/* Working for FF, Safari, Opera, Chrome */
+	/* KB3008923 has to be installed for being use without any probleme */
+	/* FUCK IE ! */
+	cursor: url("../img/cursor.png"),url("../img/cursor2.png"),auto;
+}
+
+#content {
+	background: #FFFFFF;
+	
+	width: 70%;
+	/* If your computer sucks : 800*600 */
+	min-width: 800px;
+	
+	/* center with style */
+	left: 0;
+	right: 0;
+	margin: auto;
+	
+	/* Full page */
+	height: 100%;
+}
+
+#title {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	
+	/* For Safari*/
+	text-align: center;
+	
+	background: #E6E6FA;
+	height: 20%;
+}
+
+#menu {
+	height: 80%;
+	background: #E6E6FA;
+	position: relative;
+}
+
+#smenu {
+	height: 80%;
+	width: 80%;
+	
+	/* For Safari*/
+	text-align: center;
+	
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	position: absolute;
+}
+
+.center {
+	/* fix this element inside at the center */
+	align-self: center;
+}
+
+/* min-height : 300+40*3 = 420px */
+.level {
+	/* Flex element */
+	position: relative;
+	display: flex;
+	justify-content: center;
+	
+	height: 30%;
+	
+	/* 300px, if your computer sucks 800*600 */
+	min-height: 100px;
+	
+	background: #7a7a7a;
+	
+	/* Usefull, can be use like a min-height :) */
+	line-height: 100%;
+	
+	/* I know, it's 99% at the end but i dont care at all */
+	margin-bottom: 3%;
+	
+	/* center with style */
+	left: 0;
+	right: 0;
+	margin-left: auto;	
+	margin-right: auto;	
+	
+	box-shadow: 0px 0px 0px 2px transparent; 
+}	
+
+.font { 
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	color: #ffffff;
+	margin: 0;
+	font-size: 51px;
+	line-height: 44px;
+	letter-spacing: -2px;
+	font-weight: bold;	
+}
+
+.font_title { 
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	color: #000000;
+	margin: 0;
+	font-size: 80px;
+	line-height: 44px;
+	letter-spacing: -2px;
+	font-weight: bold;	
+}

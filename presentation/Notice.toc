@@ -1,6 +1,8 @@
 \contentsline {section}{\numberline {1}Pr\'erequis}{3}
-\contentsline {section}{\numberline {2}Installation}{3}
-\contentsline {subsection}{\numberline {2.1}D\'ecompression}{3}
+\contentsline {section}{\numberline {2}Installation}{4}
+\contentsline {subsection}{\numberline {2.1}D\'ecompression}{4}
 \contentsline {subsection}{\numberline {2.2}Lancement}{4}
 \contentsline {subsection}{\numberline {2.3}Plein \'Ecran}{4}
-\contentsline {section}{\numberline {3}Gameplay}{4}
+\contentsline {section}{\numberline {3}Gameplay}{5}
+\contentsline {section}{\numberline {4}\'Evolutions}{9}
+\contentsline {section}{\numberline {5}Outils n\'ecessaires au d\'eveloppement}{10}

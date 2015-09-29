@@ -91,12 +91,45 @@ Le premier niveau consiste \`a associer les animaux affich\'es dans leurs cat\'e
 \hspace*{0.6cm}Le dernier niveau est le plus difficile de tous. Cependant la structure et le gameplay restent l\`a aussi similaire au deux niveaux pr\'ec\'edent. Seul les associations avec les animaux diff\`erent. Cette fois, les animaux sont tri\'e suivant leurs habitations. Pour continuer avec les exemples, prenons le cheval, ce dernier vit dans une \'ecurie. On d\'eplacera donc l'image du cheval dans la case repr\'esentant l'\'ecurie.
     
 \section{Gameplay}
-\hspace*{0.6cm}Le jeu est tr\`es simple d'utilisation. La souris ou le stylet si l'on se trouve sur tablette permettra de d\'eplacer les diff\`erents animaux sur les zones correspondantes par simple glisser-d\'eposer. Si l'utilisateur relache le bouton avant d'avoir atteint la bonne zone, l'image de l'animal revient \`a sa position initiale.
+
+Le jeu est d\'ecompos\'e en deux parties. En haut (zone1 en rouge), vous trouverez les animaux que vous pouvez d\'eplacer et en bas (zone 2 en violet) les zones o\`u vous pouvez les d\'eplacer.
+\vspace{0.5cm}\\
+\includegraphics[width=1.0\textwidth]{zone}
+\vspace{0.5cm}\\
+Le but du jeu est d\'eplacer les animaux de la zone 1 vers la zone 2 en suivant une certaine logique. Reprenons notre exemple pr\'ec\'edent et notons les animaux de la zone 1.\\
+\vspace{0.5cm}\\
+\includegraphics[width=1.0\textwidth]{zone1}
+\vspace{0.5cm}\\
+Prenons par exemple le cheval, nous allons cliquer dessus et maintenir notre clique tout en d\'epla\c{c}ant la souris.
+\vspace{0.5cm}\\
+\includegraphics[width=1.0\textwidth]{zone2}
+\vspace{0.5cm}\\
+Si nous rel\^achons notre clique, l'image du cheval retournera \'a sa place automatiquement. Maintenant, regardons avec attention la zone 2 et d\'ecrivons l\`a aussi les images. 
+\vspace{0.5cm}\\
+\includegraphics[width=1.0\textwidth]{zone3}
+\vspace{0.5cm}\\
+Reprenons maintenant notre cheval et d\'epla\c{c}ont le dans la zone qui lui correspond (l'écurie). L'image se fixera alors \`a la zone et vous ne pourrez plus y toucher. Vous avez la bonne r\'eponse !
+\vspace{0.5cm}\\
+\includegraphics[width=1.0\textwidth]{zone4}
+\vspace{0.5cm}\\
+Maintenant effectuons cette m\^eme op\'eration pour chaque image restante dans la zone 1. Allez, encore un petit effort, nous y somme presque.
+\vspace{0.5cm}\\
+\includegraphics[width=1.0\textwidth]{zone5}
+\vspace{0.5cm}\\
+Si vous r\'epondez correctement en pla\c{c}ant l'integralit\'e des images, un message vous disant "Bravo" s'affiche alors pour vous f\'eliciter.
+\vspace{0.5cm}\\
+\includegraphics[width=1.0\textwidth]{zone6}
+\vspace{0.5cm}\\
+Puis une nouvelle partie commence avec de nouveaux \'el\'ement dans les deux zones.
+\vspace{0.5cm}\\
+\includegraphics[width=1.0\textwidth]{zone7}
+\vspace{0.5cm}\\
 
 
 \section{Mise en oeuvre - Outils utilis\'es}
 \hspace*{0.6cm}Pour le d\'eveloppement, nous allons utiliser l'HTML5, le CSS3 et le JavaScript ainsi qu'une librairie permettant de faciliter le code javascript: JQuery. Le jeu sera compatible sous tous les navigateurs autre que IE, c'est \`a dire : Google Chrome, Mozilla Firefox, Safari, Opera.
-Pour les images utilis\'ees dans le jeu, nous utiliserons des images issus d'internet et nous les modifierons avec photoshop pour les rendre les plus simple possible.
+Pour les images utilis\'ees dans le jeu, nous utiliserons des images issus d'internet et nous les modifierons avec photoshop pour les rendre les plus simple possible.\\
+Pour partager le code efficacement, nous avons utilis\'e GIT.
 \section{Planning}
 
 \begin{tabular*}{1.0\textwidth}{@{\extracolsep{\fill}} | c | l | }

@@ -6,5 +6,5 @@
 \contentsline {subsection}{\numberline {3.3}Niveau 2 - Trier par nombre de pattes}{5}
 \contentsline {subsection}{\numberline {3.4}Niveau 3 - Trier par habitation}{5}
 \contentsline {section}{\numberline {4}Gameplay}{6}
-\contentsline {section}{\numberline {5}Mise en oeuvre - Outils utilis\'es}{6}
-\contentsline {section}{\numberline {6}Planning}{6}
+\contentsline {section}{\numberline {5}Mise en oeuvre - Outils utilis\'es}{9}
+\contentsline {section}{\numberline {6}Planning}{10}

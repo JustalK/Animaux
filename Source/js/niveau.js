@@ -233,34 +233,43 @@ $(document).ready(function() {
 // The invisible div, they are usefull for knowing where we are dragging the elements.
 // ==========================================================================================================================================================>
 	
-    $("#firstGhost").mouseenter(function() {
-    	if(drag) {
-    		inside="#firstClass";
-    		category = CATEGORIES[0];
-      	  	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
-    	}
-    });
-  
-    $("#secondGhost").mouseenter(function() {
-    	if(drag) {
-    		inside="#secondClass";
-    		category = CATEGORIES[1];
-      	  	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
-    	}
-    });
-    
-    $("#thirdGhost").mouseenter(function() {
-    	if(drag) {
-    		inside="#thirdClass";
-    		category = CATEGORIES[2];
-    		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
-    	}
-    });    
-    
-    $("#firstGhost,#secondGhost,#thirdGhost").mouseleave(function() {
-		inside=0;
-		category = null;
-    });
+	if(tablet) {
+	    $("#firstGhost").on('touchstart touchmove touchend',function(e) {
+		    	alert("azeae");
+		    	e.preventDefault();
+		    	return true;
+	    });		
+	} else {
+	    $("#firstGhost").mouseenter(function() {
+	    	if(drag) {
+		    	alert("azeae");
+	    		inside="#firstClass";
+	    		category = CATEGORIES[0];
+	      	  	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
+	    	}
+	    });
+	  
+	    $("#secondGhost").mouseenter(function() {
+	    	if(drag) {
+	    		inside="#secondClass";
+	    		category = CATEGORIES[1];
+	      	  	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
+	    	}
+	    });
+	    
+	    $("#thirdGhost").mouseenter(function() {
+	    	if(drag) {
+	    		inside="#thirdClass";
+	    		category = CATEGORIES[2];
+	    		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
+	    	}
+	    });    
+	    
+	    $("#firstGhost,#secondGhost,#thirdGhost").mouseleave(function() {
+			inside=0;
+			category = null;
+	    });		
+	}
     
  // ==========================================================================================================================================================>
  // The return menu, if we wanna go back to the menu

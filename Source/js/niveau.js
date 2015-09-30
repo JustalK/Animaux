@@ -1,6 +1,7 @@
 // OnLoad
 // Bring the elements out slowly
 $(window).load(function() {
+	isTablet();
 	/* Play with the opacity style */
 	$("#firstClass").css("opacity","0");
 	$("#secondClass").css("opacity","0");
@@ -11,6 +12,14 @@ $(window).load(function() {
 		$("#thirdClass").animate({opacity: "1"},300);
 	});
 });
+
+// Determine if the device is a tablet or not
+var tablet = false;
+function isTablet() {
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		 tablet = true;
+	}
+}
 
 //==========================================================================================================================================================>
 // Some prototype really usefull for moving the data inside the array -
@@ -177,6 +186,7 @@ $(document).ready(function() {
 		
 		countGoodAnswer = 0
 		$( ".elem" ).draggable();
+		
 		
 	    $(".elem").on("dragstart", function() {
 	    	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');

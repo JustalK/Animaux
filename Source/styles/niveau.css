@@ -15,7 +15,7 @@ html,body {
 #content {
 	background: #E6E6FA;
 	
-	width: 70%;
+	width: 100%;
 	/* If your computer sucks : 800*600 */
 	min-width: 800px;
 	

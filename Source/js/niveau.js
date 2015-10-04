@@ -6,11 +6,9 @@ $(window).load(function() {
 	$("#firstClass").css("opacity","0");
 	$("#secondClass").css("opacity","0");
 	$("#thirdClass").css("opacity","0");
-	$("#content").animate({width: '100%'},150,function() {
 		$("#firstClass").animate({opacity: "1"},300);
 		$("#secondClass").animate({opacity: "1"},300);
 		$("#thirdClass").animate({opacity: "1"},300);
-	});
 });
 
 // Determine if the device is a tablet or not
@@ -242,7 +240,6 @@ $(document).ready(function() {
 	} else {
 	    $("#firstGhost").mouseenter(function() {
 	    	if(drag) {
-		    	alert("azeae");
 	    		inside="#firstClass";
 	    		category = CATEGORIES[0];
 	      	  	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');

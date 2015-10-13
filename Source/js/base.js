@@ -38,17 +38,17 @@ $(document).ready(function() {
 	});
 	
 	//Redirection directly in the link
-	$("#Nv1").click(function() {
+	$("#niveau1").click(function() {
 		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
 		$(location).attr('href',"./src/niveau1.html");
 	});
 	
-	$("#Nv2").click(function() {
+	$("#niveau2").click(function() {
 		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
 		$(location).attr('href',"./src/niveau2.html");
 	});
 	
-	$("#Nv3").click(function() {
+	$("#niveau3").click(function() {
 		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
 		$(location).attr('href',"./src/niveau3.html");
 	});

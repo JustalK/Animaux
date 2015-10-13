@@ -12,20 +12,41 @@ html,body {
 	cursor: url("../img/cursor.png"),url("../img/cursor2.png"),auto;
 }
 
+@media(max-width:399px){
+	#content{width: 260px;}
+}
+
+@media(min-width:400px){
+	#content{width: 400px;}
+}
+
+@media(min-width:600px){
+	#content{width: 600px;}
+}
+
+@media(min-width:900px){
+	#content{width: 900px;}
+}
+
+@media(min-width:1200px){
+	#content{width: 1200px;}
+}
+
+@media(min-width:1500px){
+	#content{width: 1500px;}
+}
+
 #content {
-	background: #FFFFFF;
-	
-	width: 100%;
-	/* If your computer sucks : 800*600 */
-	min-width: 800px;
+	position: absolute;
 	
 	/* center with style */
 	left: 0;
 	right: 0;
 	margin: auto;
-	
-	/* Full page */
 	height: 100%;
+	
+	display: flex;
+	justify-content: center;
 }
 
 #title {

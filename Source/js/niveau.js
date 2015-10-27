@@ -11,6 +11,16 @@ $(window).load(function() {
 		$("#thirdClass").animate({opacity: "1"},300);
 });
 
+$(".imgback").mouseenter(function() {
+	$("#back").css("color","#FFF000");
+	$("#imgRetour").attr("src","../img/cloudDark.png");
+});
+
+$(".imgback").mouseleave(function() {
+	$("#back").css("color","#FF0000");
+	$("#imgRetour").attr("src","../img/cloud.png");
+});
+
 // Determine if the device is a tablet or not
 var tablet = false;
 function isTablet() {
@@ -82,7 +92,8 @@ $(document).ready(function() {
 	
 	function reset() {
 		/* Hidding the win msg and showing the table */
-		$("#win").hide();
+		$("#win").css("opacity","0");
+		$("#win").html("BRAVO !");
 		$("#data").show();
 		
 		/* Removing all the element well placed in the areas. Removing also the br */
@@ -194,8 +205,14 @@ $(document).ready(function() {
 	    });
 	    
 	    $(".elem").on("dragstop", function() {
+    		var insidetmp = inside;
 	    	if(category==$(this).attr("data-result")) {
 	    		$(this).remove();
+	    		$(insidetmp).css("background","#00FF00");
+	    		$(insidetmp).animate({"zIndex":"200"},200,function() {
+	    			$(insidetmp).css("background","#FFFFFF");
+	    			$(insidetmp).css("zIndex","0");
+	    		});
 	    		$(inside).append("<br />");
 	    		$(inside).append(tmp);
 	    		$(inside).append("<br />");
@@ -203,8 +220,22 @@ $(document).ready(function() {
 	    		category = null;
 	    		if(collection == countGoodAnswer) {
 	    			win();	
+	    		} else {
+	    			var audio = new Audio('../sound/good.mp3');
+	    			audio.play();
+		    		$(insidetmp).animate({"zIndex":"200"},200,function() {
+		    			$(insidetmp).css("background","#FFFFFF");
+		    			$(insidetmp).css("zIndex","auto");
+		    		});
 	    		}
 	    	} else {
+	    		$(insidetmp).css("background","#FF0000");
+	    		$(insidetmp).animate({"zIndex":"200"},200,function() {
+	    			$(insidetmp).css("background","#FFFFFF");
+	    			$(insidetmp).css("zIndex","0");
+	    		});
+	    		var audio = new Audio('../sound/bad.mp3');
+	    		audio.play();
 	    		category = null;
 	    	    $(this).animate({
 	    	        top: "0px",
@@ -218,13 +249,15 @@ $(document).ready(function() {
     
 	/* Win-win */
 	function win() {
-		$("#win").show();
+		$("#win").css("opacity","1");
 		$("#data").hide();
 		drag = false;
+		var audio = new Audio('../sound/clap.mp3');
+		audio.play();
 		/* Little timer, the nigga user has to see that he has won */
 		setTimeout(function(){
 			newGame();
-		}, 1500);
+		}, 2000);
 	}
 	
 // ==========================================================================================================================================================>

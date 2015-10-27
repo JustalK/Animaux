@@ -13,7 +13,10 @@ html,body {
 }
 
 #content {
-	background: #E6E6FA;
+	background: -webkit-linear-gradient(#66c4e0, #cef6b7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#66c4e0, #cef6b7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#66c4e0, #cef6b7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#66c4e0, #cef6b7); /* Standard syntax (must be last) */
 	
 	width: 100%;
 	/* If your computer sucks : 800*600 */
@@ -37,6 +40,7 @@ html,body {
 }
 
 #firstPart {
+	position: absolute;
 	width: 80%;
 	background: transparent;
 	height: 30%;
@@ -96,7 +100,7 @@ html,body {
 
 #firstClass {
 	position: absolute;
-	background: #fff000;
+	background: #ffffff;
 	width: 30%;
 	height: 90%;
 	bottom: 0;
@@ -122,7 +126,7 @@ html,body {
 
 #secondClass {
 	position: absolute;
-	background: #fff000;
+	background: #ffffff;
 	width: 30%;
 	height: 90%;
 	bottom: 0;
@@ -150,7 +154,7 @@ html,body {
 
 #thirdClass {
 	position: absolute;
-	background: #fff000;
+	background: #ffffff;
 	width: 30%;
 	height: 90%;
 	bottom: 0;
@@ -179,6 +183,7 @@ html,body {
 	left: 0;
 	right: 0;
 	margin: auto;
+	opacity: 0;
 }
 
 .font_title { 
@@ -196,8 +201,9 @@ html,body {
 	position: fixed;
 	right: 0;
 	width:100px;
-	height: 30px;
-	line-height: 30px;
+	height: 50px;
+	line-height: 50px;
 	text-align:center;
-	background: #fff000;
+	z-index:1001;
+	color:#FF0000;
 }

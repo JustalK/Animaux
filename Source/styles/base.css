@@ -12,6 +12,10 @@ html,body {
 	cursor: url("../img/cursor.png"),url("../img/cursor2.png"),auto;
 }
 
+body {
+	overflow:hidden;
+}
+
 @media(max-width:399px){
 	#content{width: 260px;}
 }

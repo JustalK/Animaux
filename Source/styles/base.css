@@ -10,10 +10,10 @@ html,body {
 	/* KB3008923 has to be installed for being use without any probleme */
 	/* FUCK IE ! */
 	cursor: url("../img/cursor.png"),url("../img/cursor2.png"),auto;
+	overflow:hidden;
 }
 
 body {
-	overflow:hidden;
 }
 
 @media(max-width:399px){

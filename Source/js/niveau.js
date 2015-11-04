@@ -87,6 +87,9 @@ $(document).ready(function() {
 	/* The object that we are dragging */
 	var tmp;	
 	
+	var positionX = 0;
+	var positionY = 0;
+	
 	/* Strating the game */
 	newGame();
 	
@@ -201,50 +204,56 @@ $(document).ready(function() {
 	    	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
 	    	tmp = $(this).clone();
 	    	drag = true;
-			resize();	
+			resize();
 	    });
 	    
-	    $(".elem").on("dragstop", function() {
-    		var insidetmp = inside;
-	    	if(category==$(this).attr("data-result")) {
-	    		$(this).remove();
-	    		$(insidetmp).css("background","#00FF00");
-	    		$(insidetmp).animate({"zIndex":"200"},200,function() {
-	    			$(insidetmp).css("background","#FFFFFF");
-	    			$(insidetmp).css("zIndex","0");
-	    		});
-	    		$(inside).append("<br />");
-	    		$(inside).append(tmp);
-	    		$(inside).append("<br />");
-	    		countGoodAnswer++;
-	    		category = null;
-	    		if(collection == countGoodAnswer) {
-	    			win();	
-	    		} else {
-	    			var audio = new Audio('../sound/good.mp3');
-	    			audio.play();
+	    $(document).on('touchstart', function(e) {
+	    	  positionX = e.originalEvent.touches[0].pageX;
+	    	  positionY = e.originalEvent.touches[0].pageY;
+	    });
+	    
+	    if(!tablet) {
+		    $(".elem").on("dragstop", function() {
+	    		var insidetmp = inside;
+		    	if(category==$(this).attr("data-result")) {
+		    		$(this).remove();
+		    		$(insidetmp).css("background","#00FF00");
 		    		$(insidetmp).animate({"zIndex":"200"},200,function() {
 		    			$(insidetmp).css("background","#FFFFFF");
-		    			$(insidetmp).css("zIndex","auto");
+		    			$(insidetmp).css("zIndex","0");
 		    		});
-	    		}
-	    	} else {
-	    		$(insidetmp).css("background","#FF0000");
-	    		$(insidetmp).animate({"zIndex":"200"},200,function() {
-	    			$(insidetmp).css("background","#FFFFFF");
-	    			$(insidetmp).css("zIndex","0");
-	    		});
-	    		var audio = new Audio('../sound/bad.mp3');
-	    		audio.play();
-	    		category = null;
-	    	    $(this).animate({
-	    	        top: "0px",
-	    	        left: "0px"
-	    	    });
-	    	}
-	    	drag = false;
-	  });		
-
+		    		$(inside).append("<br />");
+		    		$(inside).append(tmp);
+		    		$(inside).append("<br />");
+		    		countGoodAnswer++;
+		    		category = null;
+		    		if(collection == countGoodAnswer) {
+		    			win();	
+		    		} else {
+		    			var audio = new Audio('../sound/good.mp3');
+		    			audio.play();
+			    		$(insidetmp).animate({"zIndex":"200"},200,function() {
+			    			$(insidetmp).css("background","#FFFFFF");
+			    			$(insidetmp).css("zIndex","auto");
+			    		});
+		    		}
+		    	} else {
+		    		$(insidetmp).css("background","#FF0000");
+		    		$(insidetmp).animate({"zIndex":"200"},200,function() {
+		    			$(insidetmp).css("background","#FFFFFF");
+		    			$(insidetmp).css("zIndex","0");
+		    		});
+		    		var audio = new Audio('../sound/bad.mp3');
+		    		audio.play();
+		    		category = null;
+		    	    $(this).animate({
+		    	        top: "0px",
+		    	        left: "0px"
+		    	    });
+		    	}
+		    	drag = false;
+		  });	
+	    }
 	}
     
 	/* Win-win */
@@ -264,13 +273,75 @@ $(document).ready(function() {
 // The invisible div, they are usefull for knowing where we are dragging the elements.
 // ==========================================================================================================================================================>
 	
-	if(tablet) {
-	    $("#firstGhost").on('touchstart touchmove touchend',function(e) {
-		    	alert("azeae");
-		    	e.preventDefault();
-		    	return true;
-	    });		
-	} else {
+		document.addEventListener('touchend', function(event) {
+			var X = event.changedTouches[0].pageX - positionX;
+			var Y = event.changedTouches[0].pageY - positionY;
+		    var endTarget = document.elementFromPoint(
+		            event.changedTouches[0].pageX,
+		            event.changedTouches[0].pageY
+		        );
+		    	if(endTarget.id=="firstGhost") {
+		    		inside="#firstClass";
+		    		category = CATEGORIES[0];
+		      	  	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
+		    	} else if(endTarget.id=="secondGhost") {
+		    		inside="#secondClass";
+		    		category = CATEGORIES[1];
+		      	  	$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
+		    	} else if(endTarget.id=="thirdGhost") {
+		    		inside="#thirdClass";
+		    		category = CATEGORIES[2];
+		    		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
+		    	}
+	    		insidetmp = inside;
+	    		var $target = event.target;
+	    		if(inside!=0) {   			
+			    	if(category==event.target.getAttribute("data")) {
+			    		$(event.target.parentElement).remove();
+			    		$(insidetmp).css("background","#00FF00");
+			    		$(insidetmp).animate({"zIndex":"200"},200,function() {
+			    			$(insidetmp).css("background","#FFFFFF");
+			    			$(insidetmp).css("zIndex","0");
+			    		});
+			    		$(inside).append("<br />");
+			    		$(inside).append(tmp);
+			    		$(inside).append("<br />");
+			    		countGoodAnswer++;
+			    		category = null;
+			    		if(collection == countGoodAnswer) {
+			    			win();	
+			    		} else {
+			    			var audio = new Audio('../sound/good.mp3');
+			    			audio.play();
+				    		$(insidetmp).animate({"zIndex":"200"},200,function() {
+				    			$(insidetmp).css("background","#FFFFFF");
+				    			$(insidetmp).css("zIndex","auto");
+				    		});
+			    		}
+			    	} else {
+			    		$(insidetmp).css("background","#FF0000");
+			    		$(insidetmp).animate({"zIndex":"200"},200,function() {
+			    			$(insidetmp).css("background","#FFFFFF");
+			    			$(insidetmp).css("zIndex","0");
+			    		});
+			    		var audio = new Audio('../sound/bad.mp3');
+			    		audio.play();
+			    		category = null;
+			    	    $(event.target.parentElement).animate({
+			    	        top: "0px",
+			    	        left: "0px"
+			    	    },300);
+			    	}
+	    		} else {
+		    	    $(event.target.parentElement).animate({
+		    	        top: "0px",
+		    	        left: "0px"
+		    	    },300);   			
+	    		}
+				inside=0;
+				category = null;
+			});	
+	
 	    $("#firstGhost").mouseenter(function() {
 	    	if(drag) {
 	    		inside="#firstClass";
@@ -293,14 +364,13 @@ $(document).ready(function() {
 	    		category = CATEGORIES[2];
 	    		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
 	    	}
-	    });    
+	    });     
 	    
 	    $("#firstGhost,#secondGhost,#thirdGhost").mouseleave(function() {
 			inside=0;
 			category = null;
-	    });		
-	}
-    
+	    });	
+	    
  // ==========================================================================================================================================================>
  // The return menu, if we wanna go back to the menu
  // ==========================================================================================================================================================>	

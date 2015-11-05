@@ -210,6 +210,20 @@ $(document).ready(function() {
 			resize();
 	    });
 	    
+	    var currentMousePos = { x: -1, y: -1 };
+	    $(document).mousemove(function(event) {
+	        currentMousePos.x = event.pageX;
+	        currentMousePos.y = event.pageY;
+	    });
+	    
+	    $(".elem").on("drag", function() {
+	    	if(currentMousePos.x>=$('body').width()-80 || currentMousePos.x<=80 || currentMousePos.y<=80 || currentMousePos.y>=$('body').height()-80) {
+		    	console.log(currentMousePos.x);	
+		    	$(".elem").one(trigger("dragstop"));
+		    	$(document).trigger("mousedown");
+	    	}
+	    });
+	    
 	    $(document).on('touchstart', function(e) {
 	    	  positionX = e.originalEvent.touches[0].pageX;
 	    	  positionY = e.originalEvent.touches[0].pageY;

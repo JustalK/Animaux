@@ -1,16 +1,33 @@
+/**
+ * Lauching the function when the website is finally loaded
+ */
 $(window).load(function() {
     $("#load").animate({"opacity":"0"},50);
-    setCookie("Animaux","Done",1);
+    setCookie("Animaux","Done");
 	$("#content").animate({"opacity":"1"},300);
 });
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+/**
+ * Deleting the cookie when the browser is closed
+ */
+$(window).onbeforeunload = function() {
+	delete_cookie("Animaux");
+};
+
+/**
+ * Creating the cookie
+ * @param cname the name of the cookie
+ * @param cvalue the value of the cookie (useless)
+ */
+function setCookie(cname, cvalue) {
+	document.cookie = cname + "=" + cvalue + "; "
 } 
 
+/**
+ * For getting the cookie of the website
+ * @param cname the name of the cookie
+ * @returns The cookie with a certain name or "" if the cookie doesnt exist
+ */
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -22,9 +39,19 @@ function getCookie(cname) {
     return "";
 } 
 
-// is the document ready ?
+/**
+ * Deleting the cookie with the name cname
+ * @param name the name of the cookie that we wanna delete
+ */
+function delete_cookie( name ) {
+	  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+/**
+ * Lauched at the start 
+ */
 $(document).ready(function() {
-    // Définir la liste d'images
+    // Define all the image needed for the website
     images = new Array();
     images[0]="img/0.png";
     images[1]="img/2.png";
@@ -72,8 +99,9 @@ $(document).ready(function() {
     
     var cal = $("#barFull").width()/41;
     var gAllImages = [];
+    // Knowing if the image have already been loaded once
     if(getCookie("Animaux")=="") {
-    // Démarrer le préchargement
+    	// Preloaded
 	    for(var i=0; i<images.length; i++)
 	    {
 	         imageObj = new Image();
@@ -82,60 +110,73 @@ $(document).ready(function() {
 	             imageObj.onload = checkForAllImagesLoaded;
 	         }
 	    }
-	    function checkForAllImagesLoaded()
-	    {
-	    	$("#bar").css("width",cal+$("#bar").width()+"px");
-	    }
     } else {
     	$("#load").css("opacity","0");
     }
+    
+    /**
+     * Moving the loader in function of the number of image loaded
+     */
+    function checkForAllImagesLoaded()
+    {
+    	$("#bar").css("width",cal+$("#bar").width()+"px");
+    }
+    
 	// Design when the mouse enter
 	$(".level").mouseenter(function() {
 		$(this).css('transform', 'scale(1.02)');
 		$(this).css('box-shadow', '0px 0px 0px 2px #ffff00');
 	});
 	
-	//Design when the mouse leave
+	// Design when the mouse leave
 	$(".level").mouseleave(function() {
 		$(this).css('transform', 'scale(1)');
 		$(this).css('box-shadow', '0px 0px 0px 2px transparent');
 	});
 	
+	// Just for the first button : Design when the mouse enter
 	$("#niveau1").mouseenter(function(){
 		$(this).attr("src","img/menudoghover.png");
 	});
 	
+	// Just for the first button : Design when the mouse leave
 	$("#niveau1").mouseleave(function(){
 		$(this).attr("src","img/menudog.png");
 	});
 	
+	// Just for the second button : Design when the mouse enter
 	$("#niveau2").mouseenter(function(){
 		$(this).attr("src","img/menulionhover.png");
 	});
 	
+	// Just for the second button : Design when the mouse leave
 	$("#niveau2").mouseleave(function(){
 		$(this).attr("src","img/menulion.png");
 	});
 	
+	// Just for the third button : Design when the mouse enter
 	$("#niveau3").mouseenter(function(){
 		$(this).attr("src","img/menufishhover.png");
 	});
 	
+	// Just for the second button : Design when the mouse leave
 	$("#niveau3").mouseleave(function(){
 		$(this).attr("src","img/menufish.png");
 	});
 	
-	//Redirection directly in the link
+	// Just for the first button : Redirection directly in the link
 	$("#niveau1").click(function() {
 		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
 		$(location).attr('href',"./src/niveau1.html");
 	});
 	
+	// Just for the second button : Redirection directly in the link
 	$("#niveau2").click(function() {
 		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
 		$(location).attr('href',"./src/niveau2.html");
 	});
 	
+	// Just for the third button : Redirection directly in the link
 	$("#niveau3").click(function() {
 		$(this).css("cursor", 'url("../img/cursor.png"),url("../img/cursor2.png"),auto');
 		$(location).attr('href',"./src/niveau3.html");

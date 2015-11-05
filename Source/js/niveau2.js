@@ -23,7 +23,7 @@ function parseXMLCategories() {
  */
 function picture(animal) {
 	var object = $('<div></div>');
-	object.append('<img src="'+animal[1]+'" alt="image" width="100%"/>');
+	object.append('<img id="'+animal[1]+'" data="'+animal[3]+'" src="'+animal[1]+'" alt="image" style="position:absolute;" width="100%"/>');
 	object.addClass("elem");
 	object.attr("data-result",animal[3]);
 	object.css("opacity","0");

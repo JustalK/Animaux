@@ -1,7 +1,26 @@
 $(window).load(function() {
     $("#load").animate({"opacity":"0"},50);
+    setCookie("Animaux","Done",1);
 	$("#content").animate({"opacity":"1"},300);
 });
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+} 
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+} 
 
 // is the document ready ?
 $(document).ready(function() {
@@ -53,20 +72,23 @@ $(document).ready(function() {
     
     var cal = $("#barFull").width()/41;
     var gAllImages = [];
+    if(getCookie("Animaux")=="") {
     // Démarrer le préchargement
-    for(var i=0; i<images.length; i++)
-    {
-         imageObj = new Image();
-         imageObj.src=images[i];
-         if(i!=images.length-1) {
-             imageObj.onload = checkForAllImagesLoaded;
-         }
+	    for(var i=0; i<images.length; i++)
+	    {
+	         imageObj = new Image();
+	         imageObj.src=images[i];
+	         if(i!=images.length-1) {
+	             imageObj.onload = checkForAllImagesLoaded;
+	         }
+	    }
+	    function checkForAllImagesLoaded()
+	    {
+	    	$("#bar").css("width",cal+$("#bar").width()+"px");
+	    }
+    } else {
+    	$("#load").css("opacity","0");
     }
-    function checkForAllImagesLoaded()
-    {
-    	$("#bar").css("width",cal+$("#bar").width()+"px");
-    }
-    
 	// Design when the mouse enter
 	$(".level").mouseenter(function() {
 		$(this).css('transform', 'scale(1.02)');

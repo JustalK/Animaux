@@ -42,7 +42,7 @@ body {
 
 #content {
 	position: absolute;
-	
+	opacity: 0;
 	/* center with style */
 	left: 0;
 	right: 0;

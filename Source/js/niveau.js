@@ -3,12 +3,15 @@
 $(window).load(function() {
 	isTablet();
 	/* Play with the opacity style */
+	/**
 	$("#firstClass").css("opacity","0");
 	$("#secondClass").css("opacity","0");
 	$("#thirdClass").css("opacity","0");
-		$("#firstClass").animate({opacity: "1"},300);
-		$("#secondClass").animate({opacity: "1"},300);
-		$("#thirdClass").animate({opacity: "1"},300);
+	$("#firstClass").animate({opacity: "1"},300);
+	$("#secondClass").animate({opacity: "1"},300);
+	$("#thirdClass").animate({opacity: "1"},300);
+	**/
+	$("#content").animate({"opacity":"1"},300);
 });
 
 $(".imgback").mouseenter(function() {

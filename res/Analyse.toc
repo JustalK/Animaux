@@ -1,4 +1,6 @@
-\contentsline {section}{\numberline {1}Qualit\'es}{3}
-\contentsline {section}{\numberline {2}D\'efauts}{4}
-\contentsline {section}{\numberline {3}Programmation}{6}
-\contentsline {section}{\numberline {4}Am\'elioration}{7}
+\select@language {french}
+\contentsline {section}{\numberline {1}Le Jeu}{3}
+\contentsline {section}{\numberline {2}Qualit\IeC {\'e}s}{3}
+\contentsline {section}{\numberline {3}D\IeC {\'e}fauts}{5}
+\contentsline {section}{\numberline {4}Programmation}{7}
+\contentsline {section}{\numberline {5}Am\IeC {\'e}lioration}{8}

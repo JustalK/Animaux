@@ -1,0 +1,9 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Pr\IeC {\'e}requis}{3}
+\contentsline {section}{\numberline {2}Installation}{4}
+\contentsline {subsection}{\numberline {2.1}D\IeC {\'e}compression}{4}
+\contentsline {subsection}{\numberline {2.2}Lancement}{4}
+\contentsline {subsection}{\numberline {2.3}Plein \IeC {\'e}cran}{4}
+\contentsline {section}{\numberline {3}Gameplay}{5}
+\contentsline {section}{\numberline {4}\'Evolutions}{9}
+\contentsline {section}{\numberline {5}Outils n\IeC {\'e}cessaires au d\IeC {\'e}veloppement}{10}
